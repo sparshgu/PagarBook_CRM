@@ -1,0 +1,208 @@
+.login-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.orb1 {
+  width: 500px; height: 500px;
+  background: var(--primary);
+  top: -150px; left: -150px;
+}
+.orb2 {
+  width: 400px; height: 400px;
+  background: #5500FF;
+  bottom: -100px; right: -100px;
+}
+.orb3 {
+  width: 300px; height: 300px;
+  background: var(--primary-light);
+  top: 50%; right: 20%;
+  transform: translateY(-50%);
+}
+
+.login-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 440px;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,107,43,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.login-brand {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.login-logo {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 24px rgba(255,107,43,0.4);
+}
+
+.logo-p {
+  font-size: 28px;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.login-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.login-title span {
+  color: var(--primary);
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  color: var(--text);
+  font-size: 15px;
+  transition: border-color 0.2s, background 0.2s;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  background: rgba(255,107,43,0.05);
+}
+
+.form-group input::placeholder {
+  color: var(--text-dim);
+}
+
+.login-error {
+  background: rgba(255,71,87,0.15);
+  border: 1px solid rgba(255,71,87,0.4);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: #FF4757;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(255,107,43,0.3);
+  margin-top: 4px;
+}
+
+.login-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(255,107,43,0.4);
+}
+
+.login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-spinner {
+  width: 20px; height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.login-hints {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+.login-hints p {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.hint-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hint-role {
+  background: rgba(255,107,43,0.15);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 44px;
+  text-align: center;
+}
