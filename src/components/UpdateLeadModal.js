@@ -8,6 +8,7 @@ export default function UpdateLeadModal({ lead, onClose }) {
   const [notes, setNotes] = useState(lead.notes || '');
   const [followUpDate, setFollowUpDate] = useState(lead.followUpDate || '');
   const [saving, setSaving] = useState(false);
+  const [theme, setTheme] = useState('dark');
 
   const needsFollowUp = ['follow_up', 'follow_up_demo', 'payment'].includes(status);
 
@@ -23,13 +24,27 @@ export default function UpdateLeadModal({ lead, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
-      <div className="modal-card animate-in">
+      <div className={`modal-card animate-in ${theme}`}>
         <div className="modal-header">
           <div>
             <h2 className="modal-title">Call Update</h2>
             <p className="modal-subtitle">{lead.companyName} • {lead.ownerName}</p>
           </div>
-          <button className="modal-close" onClick={onClose}>✕</button>
+          <div className="modal-header-actions">
+            <div className="theme-switcher">
+              <button
+                type="button"
+                className={theme === 'light' ? 'theme-btn active' : 'theme-btn'}
+                onClick={() => setTheme('light')}
+              >Light</button>
+              <button
+                type="button"
+                className={theme === 'dark' ? 'theme-btn active' : 'theme-btn'}
+                onClick={() => setTheme('dark')}
+              >Dark</button>
+            </div>
+            <button className="modal-close" onClick={onClose}>✕</button>
+          </div>
         </div>
 
         <div className="modal-info">
@@ -48,8 +63,8 @@ export default function UpdateLeadModal({ lead, onClose }) {
                   style={{
                     '--opt-color': s.color,
                     borderColor: status === s.value ? s.color : 'transparent',
-                    background: status === s.value ? s.color + '22' : 'rgba(255,255,255,0.04)',
-                    color: status === s.value ? s.color : 'var(--text-muted)',
+                    background: status === s.value ? s.color + '22' : 'var(--card-surface)',
+                    color: status === s.value ? s.color : 'var(--card-text-muted)',
                   }}
                   onClick={() => setStatus(s.value)}
                 >

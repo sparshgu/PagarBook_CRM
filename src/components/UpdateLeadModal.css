@@ -11,9 +11,9 @@
 }
 
 .modal-card {
-  background: #13132A;
-  border: 1px solid var(--border);
-  border-radius: 0;
+  background: var(--card-bg);
+  color: var(--card-text);
+  border: 1px solid var(--card-border);
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -21,6 +21,34 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.modal-card.dark {
+  --card-bg: #13132A;
+  --card-text: var(--text);
+  --card-text-muted: var(--text-muted);
+  --card-text-dim: var(--text-dim);
+  --card-border: var(--border);
+  --card-surface: rgba(255,255,255,0.05);
+  --card-pill: rgba(255,255,255,0.05);
+  --card-input: rgba(255,255,255,0.05);
+  --card-input-border: var(--border);
+  --card-info-bg: rgba(255,255,255,0.05);
+  --card-btn-bg: rgba(255,255,255,0.06);
+}
+
+.modal-card.light {
+  --card-bg: #F7F9FF;
+  --card-text: #151B34;
+  --card-text-muted: #556080;
+  --card-text-dim: #7C84A0;
+  --card-border: rgba(70, 90, 140, 0.18);
+  --card-surface: #F2F5FF;
+  --card-pill: rgba(24, 39, 83, 0.06);
+  --card-input: #FFFFFF;
+  --card-input-border: rgba(24, 39, 83, 0.12);
+  --card-info-bg: rgba(24, 39, 83, 0.05);
+  --card-btn-bg: rgba(24, 39, 83, 0.05);
 }
 
 .modal-body {
@@ -36,7 +64,42 @@
   align-items: flex-start;
   justify-content: space-between;
   padding: 24px 24px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--card-border);
+  gap: 12px;
+}
+
+.modal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-switcher {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.theme-btn {
+  background: var(--card-btn-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  color: var(--card-text-muted);
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.theme-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-color: transparent;
+  color: white;
+}
+
+.theme-btn:hover {
+  opacity: 0.9;
 }
 
 .modal-title {
@@ -80,12 +143,12 @@
 }
 
 .info-pill {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--border);
+  background: var(--card-info-bg);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 5px 14px;
   font-size: 12.5px;
-  color: var(--text-muted);
+  color: var(--card-text-muted);
 }
 
 .modal-body {
@@ -132,11 +195,11 @@
 }
 
 .modal-input {
-  background: rgba(255,255,255,0.05);
-  border: 1.5px solid var(--border);
+  background: var(--card-input);
+  border: 1.5px solid var(--card-input-border);
   border-radius: var(--radius-sm);
   padding: 11px 14px;
-  color: var(--text);
+  color: var(--card-text);
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
@@ -146,11 +209,11 @@
 .modal-input:focus { border-color: var(--primary); }
 
 .modal-textarea {
-  background: rgba(255,255,255,0.05);
-  border: 1.5px solid var(--border);
+  background: var(--card-input);
+  border: 1.5px solid var(--card-input-border);
   border-radius: var(--radius-sm);
   padding: 11px 14px;
-  color: var(--text);
+  color: var(--card-text);
   font-size: 14px;
   outline: none;
   resize: vertical;
@@ -159,7 +222,7 @@
 }
 
 .modal-textarea:focus { border-color: var(--primary); }
-.modal-textarea::placeholder { color: var(--text-dim); }
+.modal-textarea::placeholder { color: var(--card-text-dim); }
 
 .call-history {
   display: flex;

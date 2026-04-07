@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
+import { ThemeProvider } from './context/ThemeContext';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 import StaffDashboard from './pages/StaffDashboard';
@@ -36,11 +37,13 @@ function AppRoutes() {
 export default function App() {
   return (
     <AuthProvider>
-      <DataProvider>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
-      </DataProvider>
+      <ThemeProvider>
+        <DataProvider>
+          <BrowserRouter>
+            <AppRoutes />
+          </BrowserRouter>
+        </DataProvider>
+      </ThemeProvider>
     </AuthProvider>
   );
 }

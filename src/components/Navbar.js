@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import ThemeToggleButton from './ThemeToggleButton';
 import './Navbar.css';
 
 export default function Navbar({ activeTab, setActiveTab, tabs }) {
@@ -43,6 +44,7 @@ export default function Navbar({ activeTab, setActiveTab, tabs }) {
           <span className="user-name">{user?.name}</span>
           <span className="user-role">{user?.role === 'admin' ? 'Administrator' : 'Relationship Executive'}</span>
         </div>
+        <ThemeToggleButton />
         <button className="logout-btn" onClick={handleLogout} title="Logout">
           ⏻
         </button>
